@@ -10,21 +10,23 @@
    Console.WriteLine();
    }
 } 
+ void Solution(int[,] matrix, int IndStr, int IndColumn)
+{
+    if (IndStr >= matrix.GetLength(0)|| IndColumn >= matrix.GetLength(1))
+      {
+       Console.WriteLine("Нет элемента с такими индексами! ");               
+      }
+} 
 
 void ReleaseArray(int[,] matrix, int IndStr, int IndColumn)
 {
-  if (matrix.GetLength(0) < IndStr || matrix.GetLength(1) < IndColumn )
-      {
-       Console.WriteLine("Нет элемента с такими индексами! ");
-                    
-      }
 
            for(int i = 0; i < matrix.GetLength(0); i++)
            {
                 for(int j = 0; j < matrix.GetLength(1); j++)
                 {
                    if (i == IndStr && j == IndColumn)
-                    Console.Write(matrix[IndStr, IndColumn]);
+                    Console.Write("Элемент с заданными индексами равен: " + matrix[IndStr, IndColumn]);
                 }
            }
 }
@@ -37,6 +39,10 @@ Console.WriteLine("Введите индекс строки массива:");
 int IndStr = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите индекс столбца массива:");
 int IndColumn = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+Console.WriteLine("Количество строк массива равно: " + IndStr);
+Console.WriteLine("Количество столбцов массива равно: " + IndColumn);
+Solution(matrix, IndStr, IndColumn); 
 ReleaseArray(matrix,IndStr,IndColumn);
  
               
